@@ -1,0 +1,10 @@
+postgres:
+  image: postgres:10.12-alpine
+  ports:
+    - '5432:5432'
+  environment:
+    POSTGRES_USER: 'user'
+    POSTGRES_PASSWORD: '123456'
+    POSTGRES_DB: 'test'
+  volumes:
+    - ./init.db:/docker-entrypoint-initdb.d/
