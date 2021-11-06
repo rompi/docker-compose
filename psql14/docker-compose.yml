@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:14.0-alpine3.14
+    container_name: rompi_db
+    ports:
+      - 5432:5432
+    env_file:
+      - env/config.env
+    volumes:
+      - ./data:/var/lib/postgresql/data
+networks:
+  default:
+    external:
+      name: rompi-network
